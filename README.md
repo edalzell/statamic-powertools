@@ -9,3 +9,7 @@ Recreate your Statamic Search index from the CP
       type: SearchManager
       width: 33
 ```
+
+# LICENSE
+
+[MIT License](http://emd.mit-license.org/)
