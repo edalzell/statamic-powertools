@@ -22,7 +22,7 @@ class SearchManagerListener extends Listener
      */
     public function initSearchManager()
     {
-        $addon_css = $this->css->url('searcmanager.css');
+        $addon_css = $this->css->url('searchmanager.css');
         $html = '<link rel="stylesheet" href="' . $addon_css . '">';
         return $html;
     }

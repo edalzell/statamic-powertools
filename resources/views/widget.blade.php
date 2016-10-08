@@ -1,6 +1,6 @@
 <div id="searchmanager" class="card">
     <div class="card-header">
-        <h2 style="display: inline; vertical-align: middle;"><em class="icon icon-magnifying-glass"></em> Search Manager</h2>
+        <h2><em class="icon icon-magnifying-glass"></em> Search Manager</h2>
         <div class="btn-group pull-right">
             <button type="button" class="btn-more dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="icon icon-dots-three-vertical"></i>
@@ -14,7 +14,7 @@
 
     <div class="card-body">
         <div>
-            <a href="/{{ $cp_path }}/addons/searchmanager/rebuild-search"><em class="icon icon-ccw"></em> Rebuild Search Index</a>
+            <a href="/{{ $cp_path }}/addons/searchmanager/rebuild-search" class="btn btn-primary"><em class="icon icon-ccw"></em> Rebuild Search Index</a>
         </div>
     </div>
 </div>
