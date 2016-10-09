@@ -3,9 +3,6 @@ routes:
 
   /rebuild-search: rebuildSearchIndex
 
-  /clear-all: clearAll
   /clear-cache: clearCache
-  /clear-opcache: clearOpCache
-  /clear-pagespeed: clearPageSpeed
   /clear-static: clearStaticCache
   /update-stache: updateStache

@@ -50,6 +50,19 @@ class PowerToolsController extends Controller
     }
 
     /**
+     * Clear static page cache
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function clearStaticCache()
+    {
+        return $this->doThing(
+            function() { Artisan::call('clear:static'); },
+            'Static page cache cleared successfully',
+            'Problem clearing your static page cache'
+        );
+    }
+
+    /**
      * @param callable $func
      * @param string $success
      * @param string $error
@@ -67,51 +80,6 @@ class PowerToolsController extends Controller
             return back()->withErrors('error', $error . $e);
         }
     }
-    /**
-     * Clear Statamic cache
-     * @return @return \Illuminate\Http\RedirectResponse
-     */
-    public function clearAll()
-    {
-        try {
-            // Update feed
-            Cache::clear();
-
-            //$this->cachemanager->clearPageSpeed();
-
-            // Log success returns
-            Log::info('All cache cleared successfully');
-
-            // Return back to dashboard with success message
-            return back()->with('success', 'All cache cleared successfully');
-        } catch (Exception $e) {
-            Log::error('Problem clearing your cache');
-            return back()->withErrors('error', ' Problem clearing your all/one of cache' . $e);
-        }
-    }
-
-    // /**
-    //  * Clear Statamic cache
-    //  * @return void
-    //  */
-    // public function clearStaticCache()
-    // {
-
-    //     try {
-    //         // Update feed
-    //         $this->cachemanager->clearStaticCache();
-
-    //         // Log success returns
-    //         Log::info('Static page cache cleared successfully');
-
-    //         // Return back to dashboard with success message
-    //         return back()->with('success', 'Static page cache cleared successfully');
-    //     } catch (Exception $e) {
-    //         Log::error('Problem clearing your Static page cache');
-    //         return back()->withErrors('error', ' Problem clearing your Static page cache' . $e);
-    //     }
-    // }
-
 
     // /**
     //  * Clear Pagespeed cache

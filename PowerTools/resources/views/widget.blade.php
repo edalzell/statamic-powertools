@@ -24,10 +24,13 @@
 
     <div class="card-body">
         <div class="btn-group">
+            <a href="/{{ $cp_path }}/addons/powertools/update-stache" class="btn">Update Stache</a>
+        </div>
+        <div class="btn-group">
             <a href="/{{ $cp_path }}/addons/powertools/clear-cache" class="btn">Clear Cache</a>
         </div>
         <div class="btn-group">
-            <a href="/{{ $cp_path }}/addons/powertools/update-stache" class="btn">Update Stache</a>
+            <a href="/{{ $cp_path }}/addons/powertools/clear-static" class="btn">Clear Static Cache</a>
         </div>
     </div>
 </div>
