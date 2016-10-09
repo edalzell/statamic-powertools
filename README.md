@@ -10,6 +10,9 @@ Recreate your Statamic Search index and clear your caches from the CP
       width: 33
 ```
 
+# Dashboard
+![dashboard](https://github.com/edalzell/statamic-powertools/blob/master/powertools-dashboard.png)
+
 # LICENSE
 
 [MIT License](http://emd.mit-license.org/)
