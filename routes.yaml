@@ -1,4 +1,0 @@
-routes:
-  /: index
-
-  /rebuild-search: rebuildSearchIndex

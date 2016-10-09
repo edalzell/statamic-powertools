@@ -1,10 +1,10 @@
 <?php
 
-namespace Statamic\Addons\SearchManager;
+namespace Statamic\Addons\PowerTools;
 
 use Statamic\Extend\Widget;
 
-class SearchManagerWidget extends Widget
+class PowerToolsWidget extends Widget
 {
 
     /**

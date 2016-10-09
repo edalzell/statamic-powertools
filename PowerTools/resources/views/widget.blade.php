@@ -1,6 +1,6 @@
-<div id="searchmanager" class="card">
+<div id="powertools" class="card">
     <div class="card-header">
-        <h2><em class="icon icon-magnifying-glass"></em> Search Manager</h2>
+        <h2>Search</h2>
         <div class="btn-group pull-right">
             <button type="button" class="btn-more dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="icon icon-dots-three-vertical"></i>
@@ -12,9 +12,22 @@
         </div>
     </div>
 
-    <div class="card-body">
+    <div class="card-body padding-bottom">
         <div>
-            <a href="/{{ $cp_path }}/addons/searchmanager/rebuild-search" class="btn btn-primary"><em class="icon icon-ccw"></em> Rebuild Search Index</a>
+            <a href="/{{ $cp_path }}/addons/powertools/rebuild-search" class="btn">Rebuild Index</a>
+        </div>
+    </div>
+
+    <div class="card-header padding-top">
+        <h2>Cache</h2>
+    </div>
+
+    <div class="card-body">
+        <div class="btn-group">
+            <a href="/{{ $cp_path }}/addons/powertools/clear-cache" class="btn">Clear Cache</a>
+        </div>
+        <div class="btn-group">
+            <a href="/{{ $cp_path }}/addons/powertools/update-stache" class="btn">Update Stache</a>
         </div>
     </div>
 </div>
