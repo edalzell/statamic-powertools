@@ -6,33 +6,33 @@
     padding-bottom: 20px;
 }
 
-#searchmanager h2 {
+#powertools h2 {
     margin: 0 0 20px;
     display: inline-block;
 }
 
-#searchmanager .list {
+#powertools .list {
     list-style-type: none;
     margin: 10px 0;
     padding: 0;
 }
 
-#searchmanager .list li {
+#powertools .list li {
     margin-bottom: 5px;
     padding: 0;
 }
 
 
-#searchmanager .list-separator li.border-top,
-#searchmanager .row-separator {
+#powertools .list-separator li.border-top,
+#powertools .row-separator {
     border-top: 1px dotted #e0e0e0;
     margin-top: 5px;
     padding-top: 5px;
 }
 
-#searchmanager .list-separator li:first,
-#searchmanager .list li:first,
-#searchmanager .list li.first {
+#powertools .list-separator li:first,
+#powertools .list li:first,
+#powertools .list li.first {
     border-top: 0 !important;
 }
 
@@ -40,7 +40,7 @@
     cursor: default;
 }
 
-#searchmanager .btn .icon {
+#powertools .btn .icon {
     color: #fff;
     text-shadow: 0 1px 1px rgba(0,0,0,.2);
 }
