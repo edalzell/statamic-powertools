@@ -1,5 +1,8 @@
 routes:
-  /: index
+  # Dashboard
+  /:
+    uses: phpinfo
+    as: phpinfo
 
   /rebuild-search: rebuildSearchIndex
 

@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Artisan;
 
 class PowerToolsController extends Controller
 {
+    public function phpinfo()
+    {
+        phpinfo();
+        //return $this->view('phpinfo');
+    }
     /**
      * Rebuild the search index
      * @return \Illuminate\Http\RedirectResponse
@@ -61,6 +66,11 @@ class PowerToolsController extends Controller
             'Problem clearing your static page cache'
         );
     }
+
+    /**
+     * Show the PHP info
+     */
+    //public function php
 
     /**
      * @param callable $func
