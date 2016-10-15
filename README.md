@@ -13,6 +13,9 @@ Recreate your Statamic Search index and clear your caches from the CP. Also adds
 # Dashboard
 ![dashboard](https://github.com/edalzell/statamic-powertools/blob/master/powertools-dashboard.png)
 
+# Menu
+![menu](https://github.com/edalzell/statamic-powertools/blob/master/phpinfo-menu.png)
+
 # LICENSE
 
 [MIT License](http://emd.mit-license.org/)
