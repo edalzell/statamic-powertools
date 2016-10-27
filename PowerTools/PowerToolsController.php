@@ -4,6 +4,7 @@ namespace Statamic\Addons\PowerTools;
 
 use Log;
 use Statamic\API\Cache;
+use Statamic\API\Search;
 use Statamic\API\Stache;
 use Statamic\Extend\Controller;
 use Illuminate\Support\Facades\Artisan;
@@ -22,7 +23,7 @@ class PowerToolsController extends Controller
     public function rebuildSearchIndex()
     {
         return $this->doThing(
-            function() { Artisan::call('search:update'); },
+            function() { Search::update(); },
             'Search index rebuilt successfully',
             'Problem rebuilding your search index'
         );
