@@ -3,6 +3,7 @@
 namespace Statamic\Addons\PowerTools;
 
 use Log;
+use Statamic\API\User;
 use Statamic\API\Cache;
 use Statamic\API\Search;
 use Statamic\API\Stache;
@@ -13,8 +14,16 @@ class PowerToolsController extends Controller
 {
     public function phpinfo()
     {
-        phpinfo();
-        //return $this->view('phpinfo');
+        /** @var \Statamic\Data\Users\User $user */
+        $user = User::getCurrent();
+        if ($user && $user->isSuper())
+        {
+            phpinfo();
+        }
+        else
+        {
+            return "Sorry, gotta be logged in and an admin to see this";
+        }
     }
     /**
      * Rebuild the search index

@@ -2,6 +2,7 @@
 
 namespace Statamic\Addons\PowerTools;
 
+use Statamic\API\User;
 use Statamic\Extend\Listener;
 use Statamic\CP\Navigation\Nav;
 use Statamic\CP\Navigation\NavItem;
@@ -24,7 +25,7 @@ class PowerToolsListener extends Listener
      */
     public function powerUp()
     {
-        return '<link rel="stylesheet" href="' . $this->css->url('powertools.css') . '">';
+        return $this->css->tag('powertools.css');
     }
 
     /**
@@ -34,8 +35,14 @@ class PowerToolsListener extends Listener
      */
     public function nav(Nav $nav)
     {
-        $nav->addTo(
-            'tools',
-            (new NavItem)->name('PHP Info')->route('phpinfo')->icon('info'));
+        // Only super users can see the PHP info
+        /** @var \Statamic\Data\Users\User $user */
+        $user = User::getCurrent();
+        if ($user && $user->isSuper())
+        {
+            $nav->addTo(
+                'tools',
+                (new NavItem)->name('PHP Info')->route('phpinfo')->icon('info'));
+        }
     }
 }
