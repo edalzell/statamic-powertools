@@ -42,7 +42,7 @@ class PowerToolsListener extends Listener
         {
             $nav->addTo(
                 'tools',
-                (new NavItem)->name('PHP Info')->route('phpinfo')->icon('info'));
+                (new NavItem)->name('php-info')->title('PHP Info')->route('phpinfo')->icon('info'));
         }
     }
 }

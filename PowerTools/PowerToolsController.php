@@ -13,32 +13,35 @@ use Illuminate\Support\Facades\Artisan;
 class PowerToolsController extends Controller
 {
     /**
-     * Outputs PHP Info, called by an iframe and URI /!/PowerTools/phpinfo
+     * Returns the PHP Info
+     *
      * @return string
      */
-    public function getPhpinfo()
+    private function getPHPInfo()
     {
-
         ob_start();
         phpInfo();
         $html = ob_get_contents();
+        ob_end_clean();
 
         return $html;
     }
     
     public function phpinfo()
     {
+
+        $html = "Sorry, gotta be logged in and an admin to see this";
+
         /** @var \Statamic\Data\Users\User $user */
         $user = User::getCurrent();
         if ($user && $user->isSuper())
         {
-            return $this->view('phpinfo')->render();
+            $html = $this->getPHPInfo();
         }
-        else
-        {
-            return "Sorry, gotta be logged in and an admin to see this";
-        }
+
+        return $this->view('phpinfo', ['html' => $html]);
     }
+
     /**
      * Rebuild the search index
      * @return \Illuminate\Http\RedirectResponse

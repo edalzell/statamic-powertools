@@ -1,7 +1,5 @@
 @extends('layout')
 
 @section('content')
-
-<iframe src="/!/PowerTools/phpinfo" style="width: 100%; height: 100vh; border: 0;"></iframe>
-
+<iframe src="data:text/html,{{ $html }}" style="width: 100%; height: calc(100vh - 150px); border: 0;"></iframe>
 @stop
