@@ -12,13 +12,27 @@ use Illuminate\Support\Facades\Artisan;
 
 class PowerToolsController extends Controller
 {
+    /**
+     * Outputs PHP Info, called by an iframe and URI /!/PowerTools/phpinfo
+     * @return string
+     */
+    public function getPhpinfo()
+    {
+
+        ob_start();
+        phpInfo();
+        $html = ob_get_contents();
+
+        return $html;
+    }
+    
     public function phpinfo()
     {
         /** @var \Statamic\Data\Users\User $user */
         $user = User::getCurrent();
         if ($user && $user->isSuper())
         {
-            phpinfo();
+            return $this->view('phpinfo')->render();
         }
         else
         {
