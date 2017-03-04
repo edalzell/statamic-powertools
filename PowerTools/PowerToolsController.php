@@ -23,6 +23,8 @@ class PowerToolsController extends Controller
         phpInfo();
         $html = ob_get_contents();
         ob_end_clean();
+         
+        $html = preg_replace( '%^.*<body>(.*)</body>.*$%ms','$1',$html);
 
         return $html;
     }
