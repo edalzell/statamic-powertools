@@ -31,17 +31,9 @@ class PowerToolsController extends Controller
     
     public function phpinfo()
     {
+        $this->authorize('super');
 
-        $html = "Sorry, gotta be logged in and an admin to see this";
-
-        /** @var \Statamic\Data\Users\User $user */
-        $user = User::getCurrent();
-        if ($user && $user->isSuper())
-        {
-            $html = $this->getPHPInfo();
-        }
-
-        return $this->view('phpinfo', ['html' => $html]);
+        return $this->view('phpinfo', ['html' => $this->getPHPInfo()]);
     }
 
     /**
@@ -110,6 +102,8 @@ class PowerToolsController extends Controller
      */
     private function doThing($func, $success, $error)
     {
+        $this->authorize('cp:access');
+
         try
         {
             $func();
