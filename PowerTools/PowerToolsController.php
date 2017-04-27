@@ -7,6 +7,8 @@ use Statamic\API\User;
 use Statamic\API\Cache;
 use Statamic\API\Search;
 use Statamic\API\Stache;
+use Statamic\API\Assets;
+use Statamic\API\Path;
 use Statamic\Extend\Controller;
 use Illuminate\Support\Facades\Artisan;
 
@@ -86,6 +88,46 @@ class PowerToolsController extends Controller
             'Static page cache cleared successfully',
             'Problem clearing your static page cache'
         );
+    }
+
+    /**
+     * Generate Asset Presets
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function generatePresets()
+    {
+        return $this->doThing(
+            function() { $this->generatePresetsInBackground(); },
+            'Glide asset generated successfully',
+            'Problem generating your glide assets'
+        );
+    }
+
+    /**
+     * Regenerate Asset Presets
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function regeneratePresets()
+    {
+        return $this->doThing(
+            function() {
+              Artisan::call('clear:glide');
+              $this->generatePresetsInBackground();
+            },
+            'Glide asset regenerated successfully',
+            'Problem regenerating your glide assets'
+        );
+    }
+
+    /**
+     * Generate Asset Presets (via cli to avoid timeouts)
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    private function generatePresetsInBackground()
+    {
+        $please_script = escapeshellarg(Path::makeFull('/') . 'please');
+        putenv('SHELL=' . $this->getConfig('shell_path', '/bin/bash'));
+        shell_exec($this->getConfig('php_path', PHP_BINDIR . '/php') . ' ' . $please_script . ' assets:generate-presets | at now 2>&1');
     }
 
     /**

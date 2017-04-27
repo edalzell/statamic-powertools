@@ -9,3 +9,6 @@ routes:
   /clear-cache: clearCache
   /clear-static: clearStaticCache
   /update-stache: updateStache
+
+  /assets-generate-presets: generatePresets
+  /assets-regenerate-presets: regeneratePresets

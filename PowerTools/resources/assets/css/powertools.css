@@ -1,3 +1,4 @@
+/* Dashboard Widget */
 .padding-top {
     padding-top: 20px;
 }
@@ -43,4 +44,69 @@
 #powertools .btn .icon {
     color: #fff;
     text-shadow: 0 1px 1px rgba(0,0,0,.2);
+}
+
+/* PHP Info */
+.phpinfo .center {
+  max-width: 1200px;
+	margin: 0 auto;
+}
+
+.phpinfo .center > table {
+	background-color: #fff;
+	border-radius: 3px;
+	box-shadow: 0 1px 3px rgba(0,0,0,.25);
+}
+
+.phpinfo .center > table td,
+.phpinfo .center > table th {
+	padding: 15px;
+}
+
+.phpinfo .center > table th {
+	font-size: 20px;
+}
+
+.phpinfo .h a,
+.phpinfo .v a {
+	display: inline-block;
+	float: left;
+	margin-right: 30px;
+}
+
+.phpinfo .e { vertical-align: top; }
+
+.phpinfo .v { word-wrap: break-word; }
+
+@media (min-width: 1200px) {
+	.phpinfo .v { max-width: 300px; }
+}
+
+@media (max-width: 1199px) {
+	.phpinfo .center {
+  	max-width: 95%;
+  	margin: 0 auto;
+	}
+	
+	.phpinfo .center table { min-height: 100px; }
+	
+	.phpinfo .center table,
+	.phpinfo .center table tbody,
+	.phpinfo .center table td,
+	.phpinfo .center table tr,
+	.phpinfo .center table th {
+  	display: block;
+  	width: 73vw;
+  	word-break: break-word;
+	}
+}
+
+@media (max-width: 767px) {
+  .phpinfo .center table,
+	.phpinfo .center table tbody,
+	.phpinfo .center table td,
+	.phpinfo .center table tr,
+	.phpinfo .center table th {
+  	width: 95vw;
+	}
 }

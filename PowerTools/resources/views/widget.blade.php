@@ -7,6 +7,7 @@
             </button>
             <ul class="dropdown-menu">
                 <li><a href="/{{ $cp_path }}/settings/cp"><span class="icon icon-browser" aria-hidden="true"></span> Widget Settings</a></li>
+                <li><a href="/{{ $cp_path }}/addons/power-tools/settings"><span class="icon icon-power-plug" aria-hidden="true"></span> Addon Settings</a></li>
                 <li><a href="{{ $github_page }}" target="_blank"><span class="icon icon-github" aria-hidden="true"></span> Github Page</a></li>
             </ul>
         </div>
@@ -22,7 +23,7 @@
         <h2>Cache</h2>
     </div>
 
-    <div class="card-body">
+    <div class="card-body padding-bottom">
         <div class="btn-group">
             <a href="/{{ $cp_path }}/addons/powertools/update-stache" class="btn">Update Stache</a>
         </div>
@@ -31,6 +32,19 @@
         </div>
         <div class="btn-group">
             <a href="/{{ $cp_path }}/addons/powertools/clear-static" class="btn">Clear Static Cache</a>
+        </div>
+    </div>
+    
+    <div class="card-header padding-top">
+        <h2>Glide Assets</h2>
+    </div>
+    
+    <div class="card-body padding-bottom">
+        <div class="btn-group">
+            <a href="/{{ $cp_path }}/addons/powertools/assets-generate-presets" class="btn">Generate Presets</a>
+        </div>
+        <div class="btn-group">
+            <a href="/{{ $cp_path }}/addons/powertools/assets-regenerate-presets" class="btn">Regenerate Presets</a>
         </div>
     </div>
 </div>

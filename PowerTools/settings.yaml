@@ -1,0 +1,7 @@
+fields:
+  php_path:
+    type: text
+    width: 100
+  shell_path:
+    type: text
+    width: 100
