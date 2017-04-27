@@ -1,5 +1,5 @@
 # PowerTool
-Recreate your Statamic Search index and clear your caches from the CP. Also adds PHP Info to the Tools section of the CP
+Recreate your Statamic Search index, clear your caches and generate / regenerate asset presets from the CP. Also adds PHP Info to the Tools section of the CP.
 
 # Install
 1. Copy files to `addons` folder
