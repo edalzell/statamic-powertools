@@ -1,6 +1,6 @@
 name: PowerTools
-version: 1.1
-description: Rebuild your search index & cache
+version: 1.2
+description: Rebuild your search index, cache & asset presets
 url: https://github.com/edalzell/statamic-powertools
 developer: Erin Dalzell
 developer_url: https://github.com/edalzell
