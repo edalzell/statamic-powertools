@@ -19,3 +19,8 @@ Recreate your Statamic Search index, clear your caches and generate / regenerate
 # LICENSE
 
 [MIT License](http://emd.mit-license.org/)
+
+## Support on Beerpay
+Hey dude! Help me out for a couple of :beers:!
+
+[![Beerpay](https://beerpay.io/edalzell/statamic-powertools/badge.svg?style=beer-square)](https://beerpay.io/edalzell/statamic-powertools)  [![Beerpay](https://beerpay.io/edalzell/statamic-powertools/make-wish.svg?style=flat-square)](https://beerpay.io/edalzell/statamic-powertools?focus=wish)
