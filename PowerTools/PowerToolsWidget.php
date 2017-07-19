@@ -17,8 +17,7 @@ class PowerToolsWidget extends Widget
         // Get settings
         $settings    = $this->getConfig();
         $github_page = $this->getMeta()['url'];
-        $cp_path     = CP_ROUTE;
 
-        return $this->view('widget', compact('settings', 'github_page', 'cp_path'))->render();
+        return $this->view('widget', compact('settings', 'github_page'))->render();
     }
 }
