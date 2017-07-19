@@ -4,11 +4,23 @@ routes:
     uses: phpinfo
     as: phpinfo
 
-  /rebuild-search: rebuildSearchIndex
+  /rebuild-search:
+    uses: rebuildSearchIndex
+    as: powertools.rebuild-search
 
-  /clear-cache: clearCache
-  /clear-static: clearStaticCache
-  /update-stache: updateStache
+  /clear-cache:
+    uses: clearCache
+    as: powertools.clear-cache
+  /clear-static:
+    uses: clearStaticCache
+    as: powertools.clear-static
+  /update-stache:
+    uses: updateStache
+    as: powertools.update-stache
 
-  /assets-generate-presets: generatePresets
-  /assets-regenerate-presets: regeneratePresets
+  /assets-generate-presets:
+    uses: generatePresets
+    as: powertools.assets-generate-presets
+  /assets-regenerate-presets:
+    uses: regeneratePresets
+    as: powertools.assets-regenerate-presets
