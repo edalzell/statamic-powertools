@@ -3,7 +3,8 @@ Recreate your Statamic Search index, clear your caches and generate / regenerate
 
 # Install
 1. Copy files to `addons` folder
-2. Add a widget to your CP Dashboard:
+2. Run `php please update:addons`
+3. Add a widget to your CP Dashboard:
 ```
     - 
       type: PowerTools
