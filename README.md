@@ -14,7 +14,7 @@ Recreate your Statamic Search index, clear your caches and generate / regenerate
 ![dashboard](https://github.com/edalzell/statamic-powertools/blob/master/powertools-dashboard.png)
 
 # Menu
-![menu](https://github.com/edalzell/statamic-powertools/blob/master/phpinfo-menu.png)
+![menu](https://github.com/edalzell/statamic-powertools/blob/master/powertools-tools-menu.png)
 
 # LICENSE
 
