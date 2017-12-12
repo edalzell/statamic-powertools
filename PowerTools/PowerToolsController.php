@@ -3,17 +3,58 @@
 namespace Statamic\Addons\PowerTools;
 
 use Log;
-use Statamic\API\User;
+use Statamic\API\Arr;
+use Statamic\API\File;
+use Statamic\API\Path;
 use Statamic\API\Cache;
 use Statamic\API\Search;
 use Statamic\API\Stache;
-use Statamic\API\Assets;
-use Statamic\API\Path;
 use Statamic\Extend\Controller;
+use Monolog\Handler\StreamHandler;
 use Illuminate\Support\Facades\Artisan;
 
 class PowerToolsController extends Controller
 {
+    public function phpinfo()
+    {
+        $this->authorize('super');
+
+        return $this->view('phpinfo', ['html' => $this->getPHPInfo()]);
+    }
+
+    public function log()
+    {
+        $this->authorize('super');
+
+        return $this->view('log', ['html' => $this->getLog()]);
+    }
+
+    /**
+     * Returns the logs
+     *
+     * @return string
+     */
+    public function getLog()
+    {
+        $log = '';
+
+        $handler = Arr::first(Log::getMonolog()->getHandlers(), function ($key, $handler) {
+            return $handler instanceof StreamHandler;
+        });
+
+        if ($handler) {
+            $log = collect(
+                explode("\n", File::get($handler->getUrl()))
+            )->map(function ($line) {
+                return $this->highlight($line);
+            })->implode("\n");
+        }
+
+        return $log;
+    }
+
+
+
     /**
      * Returns the PHP Info
      *
@@ -25,18 +66,12 @@ class PowerToolsController extends Controller
         phpInfo();
         $html = ob_get_contents();
         ob_end_clean();
-         
+
         $html = preg_replace( '%^.*<body>(.*)</body>.*$%ms','$1',$html);
 
         return $html;
     }
-    
-    public function phpinfo()
-    {
-        $this->authorize('super');
 
-        return $this->view('phpinfo', ['html' => $this->getPHPInfo()]);
-    }
 
     /**
      * Rebuild the search index
@@ -130,10 +165,11 @@ class PowerToolsController extends Controller
         shell_exec($this->getConfig('php_path', PHP_BINDIR . '/php') . ' ' . $please_script . ' assets:generate-presets | at now 2>&1');
     }
 
-    /**
-     * Show the PHP info
-     */
-    //public function php
+    protected function highlight($line)
+    {
+        // modify the string to have some fancy bits
+        return $line;
+    }
 
     /**
      * @param callable $func
