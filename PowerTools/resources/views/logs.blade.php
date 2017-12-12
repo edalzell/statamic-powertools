@@ -79,7 +79,7 @@
                                 @if (isset($log['in_file'])) <br>{{{ $log['in_file'] }}} @endif
 
                                 @if ($log['stack'])
-                                    <div id="stack{{{ $key }}}" class="stack-trace" style="display: none;">{{{ trim($log['stack']) }}}</div>
+                                    <div id="stack{{{ $key }}}" class="stack-trace" style="display: none;"><pre><code>{{{ trim($log['stack']) }}}</code></pre></div>
                                 @endif
                             </td>
                         </tr>
