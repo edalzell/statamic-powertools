@@ -24,7 +24,9 @@ class PowerToolsListener extends Listener
      */
     public function powerUp()
     {
-        return $this->css->tag('powertools.css');
+        $html = $this->js->tag('powertools');
+        $html .= $this->css->tag('powertools');
+        return $html;
     }
 
     /**
@@ -44,7 +46,7 @@ class PowerToolsListener extends Listener
                 Nav::item('PHP Info')->route('phpinfo')->icon('info'));
             $nav->addTo(
                 'tools',
-                Nav::item('Log')->route('log')->icon('flashlight'));
+                Nav::item('Logs')->route('logs')->icon('book'));
         }
     }
 }

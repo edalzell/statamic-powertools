@@ -1,0 +1,6 @@
+{
+  "name": "edalzell/powertools",
+  "require": {
+    "rap2hpoutre/laravel-log-viewer": "*"
+  }
+}

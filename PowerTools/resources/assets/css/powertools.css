@@ -109,3 +109,25 @@
   	width: 95vw;
 	}
 }
+
+#logbook .log-picker { display: inline-block; }
+
+#logbook .dossier { margin-top: 0; }
+#logbook .dossier td { vertical-align: top; }
+#logbook .dossier .level { min-width: 80px; }
+#logbook .dossier .context { min-width: 80px; }
+#logbook .dossier .date { min-width: 180px; }
+#logbook .dossier .text { word-break: break-all; }
+
+#logbook .dossier .expandable { cursor: zoom-in; }
+#logbook .dossier .expandable.open { cursor: zoom-out; }
+
+#logbook .stack-trace {
+	white-space: pre-wrap;
+	font-size: 0.9em;
+}
+
+#logbook .level-icon::before {
+	font-family: entypo;
+	font-size: 13px;
+}

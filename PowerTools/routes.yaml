@@ -4,9 +4,9 @@ routes:
     uses: phpinfo
     as: phpinfo
 
-  /log:
-    uses: log
-    as: log
+  /logs:
+    uses: logs
+    as: logs
 
   /rebuild-search:
     uses: rebuildSearchIndex

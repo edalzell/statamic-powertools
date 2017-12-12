@@ -3,15 +3,14 @@
 namespace Statamic\Addons\PowerTools;
 
 use Log;
-use Statamic\API\Arr;
-use Statamic\API\File;
 use Statamic\API\Path;
 use Statamic\API\Cache;
 use Statamic\API\Search;
 use Statamic\API\Stache;
 use Statamic\Extend\Controller;
-use Monolog\Handler\StreamHandler;
 use Illuminate\Support\Facades\Artisan;
+use Rap2hpoutre\LaravelLogViewer\LaravelLogViewer;
+
 
 class PowerToolsController extends Controller
 {
@@ -22,40 +21,46 @@ class PowerToolsController extends Controller
         return $this->view('phpinfo', ['html' => $this->getPHPInfo()]);
     }
 
-    public function log()
+
+    public function logs()
     {
-        $this->authorize('super');
-
-        return $this->view('log', ['html' => $this->getLog()]);
-    }
-
-    /**
-     * Returns the logs
-     *
-     * @return string
-     */
-    public function getLog()
-    {
-        $log = '';
-
-        $handler = Arr::first(Log::getMonolog()->getHandlers(), function ($key, $handler) {
-            return $handler instanceof StreamHandler;
-        });
-
-        if ($handler) {
-            $log = collect(
-                explode("\n", File::get($handler->getUrl()))
-            )->map(function ($line) {
-                return $this->highlight($line);
-            })->implode("\n");
+        if (! auth()->check()) {
+            return redirect('/');
         }
 
-        return $log;
+        if ($file = request('log')) {
+            LaravelLogViewer::setFile(base64_decode($file));
+        }
+
+        if ($file = request('dl')) {
+            return response()->download(LaravelLogViewer::pathToLogFile(base64_decode($file)));
+        }
+
+        if ($file = request('del')) {
+            app('files')->delete(LaravelLogViewer::pathToLogFile(base64_decode($file)));
+
+            return redirect(request()->url());
+        }
+
+        if (request()->has('delall')) {
+            foreach (LaravelLogViewer::getFiles(true) as $file) {
+                app('files')->delete(LaravelLogViewer::pathToLogFile($file));
+            }
+
+            return redirect(request()->url());
+        }
+
+        $data = [
+            'logs' => LaravelLogViewer::all(),
+            'files' => LaravelLogViewer::getFiles(true),
+            'current_file' => LaravelLogViewer::getFileName(),
+            'action_path' => route('logs'),
+        ];
+
+        return $this->view('logs', $data);
     }
 
-
-
-    /**
+     /**
      * Returns the PHP Info
      *
      * @return string
