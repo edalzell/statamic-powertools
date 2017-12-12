@@ -4,6 +4,10 @@ routes:
     uses: phpinfo
     as: phpinfo
 
+  /log:
+    uses: log
+    as: log
+
   /rebuild-search:
     uses: rebuildSearchIndex
     as: powertools.rebuild-search
