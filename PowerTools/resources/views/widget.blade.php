@@ -1,9 +1,12 @@
-<div id="powertools" class="card">
-    <div class="card-header">
-        <h2>Search</h2>
+<div id="powertools" class="card flush">
+    <div class="head">
+        <h1>PowerTools</h1>
         <div class="btn-group pull-right">
-            <button type="button" class="btn-more dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="icon icon-dots-three-vertical"></i>
+            <a href="{{ route('logs') }}" class="btn btn-primary"><span class="icon icon-book"></span> &nbsp; Logs</a>
+            <a href="{{ route('phpinfo') }}" class="btn btn-primary"><span class="icon icon-info"></span> &nbsp; PHP Info</a>
+            <button type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu">
                 <li><a href="{{ route('settings.edit', 'cp') }}"><span class="icon icon-browser" aria-hidden="true"></span> Widget Settings</a></li>
@@ -13,37 +16,24 @@
         </div>
     </div>
 
-    <div class="card-body padding-bottom">
-        <div>
-            <a href="{{ route('powertools.rebuild-search') }}" class="btn">Rebuild Index</a>
-        </div>
+    <div class="card-body pad-16">
+        <h2>Search</h2><br />
+        <a href="{{ route('powertools.rebuild-search') }}" class="btn">Rebuild Index</a>
     </div>
 
-    <div class="card-header padding-top">
-        <h2>Cache</h2>
-    </div>
-
-    <div class="card-body padding-bottom">
+    <div class="card-body pad-16">
+        <h2>Cache</h2><br />
         <div class="btn-group">
             <a href="{{ route('powertools.update-stache') }}" class="btn">Update Stache</a>
-        </div>
-        <div class="btn-group">
             <a href="{{ route('powertools.clear-cache') }}" class="btn">Clear Cache</a>
-        </div>
-        <div class="btn-group">
             <a href="{{ route('powertools.clear-static') }}" class="btn">Clear Static Cache</a>
         </div>
     </div>
 
-    <div class="card-header padding-top">
-        <h2>Glide Assets</h2>
-    </div>
-
-    <div class="card-body padding-bottom">
+    <div class="card-body pad-16">
+        <h2>Glide Assets</h2><br />
         <div class="btn-group">
             <a href="{{ route('powertools.assets-generate-presets') }}" class="btn">Generate Presets</a>
-        </div>
-        <div class="btn-group">
             <a href="{{ route('powertools.assets-regenerate-presets') }}" class="btn">Regenerate Presets</a>
         </div>
     </div>
