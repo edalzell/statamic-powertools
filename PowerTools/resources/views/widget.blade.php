@@ -2,9 +2,9 @@
     <div class="head">
         <h1>PowerTools</h1>
         <div class="btn-group pull-right">
-            <a href="{{ route('logs') }}" class="btn btn-primary"><span class="icon icon-book"></span> &nbsp; Logs</a>
-            <a href="{{ route('phpinfo') }}" class="btn btn-primary"><span class="icon icon-info"></span> &nbsp; PHP Info</a>
-            <button type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="{{ route('logs') }}" class="btn"><span class="icon icon-book"></span> &nbsp; Logs</a>
+            <a href="{{ route('phpinfo') }}" class="btn"><span class="icon icon-info"></span> &nbsp; PHP Info</a>
+            <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="caret"></span>
                 <span class="sr-only">Toggle Dropdown</span>
             </button>
@@ -17,24 +17,30 @@
     </div>
 
     <div class="card-body pad-16">
-        <h2>Search</h2><br />
-        <a href="{{ route('powertools.rebuild-search') }}" class="btn">Rebuild Index</a>
-    </div>
-
-    <div class="card-body pad-16">
-        <h2>Cache</h2><br />
-        <div class="btn-group">
-            <a href="{{ route('powertools.update-stache') }}" class="btn">Update Stache</a>
-            <a href="{{ route('powertools.clear-cache') }}" class="btn">Clear Cache</a>
-            <a href="{{ route('powertools.clear-static') }}" class="btn">Clear Static Cache</a>
+      <div class="form-group text-fieldtype width-100">
+        <div class="field-inner">
+			       <label class="block">Search</label>
+             <a href="{{ route('powertools.rebuild-search') }}" class="btn">Update Search Index</a>
         </div>
-    </div>
-
-    <div class="card-body pad-16">
-        <h2>Glide Assets</h2><br />
-        <div class="btn-group">
-            <a href="{{ route('powertools.assets-generate-presets') }}" class="btn">Generate Presets</a>
-            <a href="{{ route('powertools.assets-regenerate-presets') }}" class="btn">Regenerate Presets</a>
+      </div>
+      <div class="form-group text-fieldtype width-100">
+        <div class="field-inner">
+			       <label class="block">Caching</label>
+             <div class="btn-group">
+                 <a href="{{ route('powertools.clear-cache') }}" class="btn">Clear Cache</a>
+                 <a href="{{ route('powertools.update-stache') }}" class="btn">Clear Stache</a>
+                 <a href="{{ route('powertools.clear-static') }}" class="btn">Clear Static Page Cache</a>
+             </div>
         </div>
+      </div>
+      <div class="form-group text-fieldtype width-100">
+        <div class="field-inner">
+			       <label class="block">Assets</label>
+             <div class="btn-group">
+               <a href="{{ route('powertools.assets-regenerate-presets') }}" class="btn">Clear Glide Cache</a>
+               <a href="{{ route('powertools.assets-generate-presets') }}" class="btn">Generate Presets</a>
+             </div>
+        </div>
+      </div>
     </div>
 </div>
