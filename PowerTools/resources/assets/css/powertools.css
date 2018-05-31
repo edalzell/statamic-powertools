@@ -42,8 +42,12 @@
 }
 
 #powertools .btn .icon {
-    color: #fff;
+    color: #6C6E8B;
     text-shadow: 0 1px 1px rgba(0,0,0,.2);
+}
+
+#powertools .btn:hover .icon {
+    color: #32325d;
 }
 
 /* PHP Info */
@@ -86,9 +90,9 @@
   	max-width: 95%;
   	margin: 0 auto;
 	}
-	
+
 	.phpinfo .center table { min-height: 100px; }
-	
+
 	.phpinfo .center table,
 	.phpinfo .center table tbody,
 	.phpinfo .center table td,
