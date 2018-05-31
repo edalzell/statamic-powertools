@@ -6,4 +6,5 @@ return [
     'shell_path_instruct' => "The path to the shell on your system system, used to create asset presets in the background.",
     'hide_nav' => 'Hide Logbook from Nav',
     'hide_nav_instruct' => 'This hides the nav item from other CP users while still keeping Logbook accessible directly via `/cp/addons/logbook`.',
+    'hide_presets' => 'Hide Image Presets from Widget'
   ];

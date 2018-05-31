@@ -34,6 +34,7 @@
              </div>
         </div>
       </div>
+      @unless ($hide_presets)
       <div class="form-group text-fieldtype width-100">
         <div class="field-inner">
 			       <label class="block">Image Manipulation Presets</label>
@@ -43,5 +44,6 @@
              </div>
         </div>
       </div>
+      @endunless
     </div>
 </div>
