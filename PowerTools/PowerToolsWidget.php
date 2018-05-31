@@ -16,8 +16,8 @@ class PowerToolsWidget extends Widget
     {
         // Get settings
         $settings    = $this->getConfig();
+        $hide_presets = $this->getConfig('hide_presets');
         $github_page = $this->getMeta()['url'];
-
-        return $this->view('widget', compact('settings', 'github_page'))->render();
+        return $this->view('widget', compact('settings', 'hide_presets', 'github_page'))->render();
     }
 }

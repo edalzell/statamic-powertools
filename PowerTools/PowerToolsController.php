@@ -130,6 +130,21 @@ class PowerToolsController extends Controller
         );
     }
 
+
+    /**
+     * Clear Glide image cache
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function clearGlide()
+    {
+        return $this->doThing(
+            function() { Artisan::call('clear:glide'); },
+            'Glide image cache cleared successfully',
+            'Problem clear your Glide image cache'
+        );
+    }
+
+
     /**
      * Generate Asset Presets
      * @return \Illuminate\Http\RedirectResponse

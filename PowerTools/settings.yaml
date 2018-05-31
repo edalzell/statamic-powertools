@@ -5,3 +5,5 @@ fields:
   shell_path:
     type: text
     width: 100
+  hide_presets:
+    type: toggle
