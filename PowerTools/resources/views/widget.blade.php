@@ -29,16 +29,17 @@
              <div class="btn-group">
                  <a href="{{ route('powertools.clear-cache') }}" class="btn">Clear Cache</a>
                  <a href="{{ route('powertools.update-stache') }}" class="btn">Clear Stache</a>
-                 <a href="{{ route('powertools.clear-static') }}" class="btn">Clear Static Page Cache</a>
+                 <a href="{{ route('powertools.clear-static') }}" class="btn">Clear Static</a>
+                 <a href="{{ route('powertools.clear-glide') }}" class="btn">Clear Glide</a>
              </div>
         </div>
       </div>
       <div class="form-group text-fieldtype width-100">
         <div class="field-inner">
-			       <label class="block">Assets</label>
+			       <label class="block">Image Manipulation Presets</label>
              <div class="btn-group">
-               <a href="{{ route('powertools.assets-regenerate-presets') }}" class="btn">Clear Glide Cache</a>
-               <a href="{{ route('powertools.assets-generate-presets') }}" class="btn">Generate Presets</a>
+               <a href="{{ route('powertools.assets-generate-presets') }}" class="btn">Generate Assets</a>
+               <a href="{{ route('powertools.assets-regenerate-presets') }}" class="btn">Regenerate Assets</a>
              </div>
         </div>
       </div>
