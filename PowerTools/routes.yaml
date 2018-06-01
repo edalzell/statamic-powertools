@@ -15,12 +15,15 @@ routes:
   /clear-cache:
     uses: clearCache
     as: powertools.clear-cache
-  /clear-static:
-    uses: clearStaticCache
-    as: powertools.clear-static
   /update-stache:
     uses: updateStache
     as: powertools.update-stache
+  /clear-static:
+    uses: clearStaticCache
+    as: powertools.clear-static
+  /clear-glide:
+    uses: clearGlide
+    as: powertools.clear-glide
 
   /assets-generate-presets:
     uses: generatePresets
