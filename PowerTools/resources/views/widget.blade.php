@@ -19,13 +19,13 @@
     <div class="card-body pad-16">
       <div class="form-group text-fieldtype width-100">
         <div class="field-inner">
-			<label class="block">Search</label>
+            <label class="block">Search</label>
             <a href="{{ route('powertools.rebuild-search') }}" class="btn">Update Search Index</a>
         </div>
       </div>
       <div class="form-group text-fieldtype width-100">
         <div class="field-inner">
-			<label class="block">Caching</label>
+	    <label class="block">Caching</label>
             <div class="btn-group">
                 <a href="{{ route('powertools.clear-cache') }}" class="btn">Clear Cache</a>
                 <a href="{{ route('powertools.update-stache') }}" class="btn">Clear Stache</a>
@@ -34,10 +34,10 @@
             </div>
         </div>
       </div>
-      @unless ($settings['hide_presets'])
-      <div class="form-group text-fieldtype width-100">
-        <div class="field-inner">
-			<label class="block">Image Manipulation Presets</label>
+      @unless (isset($settings['hide_presets']) && $settings['hide_presets'])
+          <div class="form-group text-fieldtype width-100">
+          <div class="field-inner">
+	<label class="block">Image Manipulation Presets</label>
             <div class="btn-group">
                 <a href="{{ route('powertools.assets-generate-presets') }}" class="btn">Generate Assets</a>
                 <a href="{{ route('powertools.assets-regenerate-presets') }}" class="btn">Regenerate Assets</a>
