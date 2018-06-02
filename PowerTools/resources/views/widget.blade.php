@@ -35,15 +35,15 @@
         </div>
       </div>
       @unless (isset($settings['hide_presets']) && $settings['hide_presets'])
-          <div class="form-group text-fieldtype width-100">
-          <div class="field-inner">
-	<label class="block">Image Manipulation Presets</label>
-            <div class="btn-group">
-                <a href="{{ route('powertools.assets-generate-presets') }}" class="btn">Generate Assets</a>
-                <a href="{{ route('powertools.assets-regenerate-presets') }}" class="btn">Regenerate Assets</a>
+        <div class="form-group text-fieldtype width-100">
+            <div class="field-inner">
+                <label class="block">Image Manipulation Presets</label>
+                <div class="btn-group">
+                    <a href="{{ route('powertools.assets-generate-presets') }}" class="btn">Generate Assets</a>
+                    <a href="{{ route('powertools.assets-regenerate-presets') }}" class="btn">Regenerate Assets</a>
+                </div>
             </div>
         </div>
-      </div>
       @endunless
     </div>
 </div>
