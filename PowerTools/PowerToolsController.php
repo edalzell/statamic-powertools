@@ -11,42 +11,42 @@ use Statamic\Extend\Controller;
 use Illuminate\Support\Facades\Artisan;
 use Rap2hpoutre\LaravelLogViewer\LaravelLogViewer;
 
-
 class PowerToolsController extends Controller
 {
     public function phpinfo()
     {
         $this->authorize('super');
 
-        return $this->view('phpinfo', ['html' => $this->getPHPInfo()]);
+        return $this->view('phpinfo', ['html' => $this->getPHPInfo(), 'title' => 'PHP Info']);
     }
-
 
     public function logs()
     {
-        if (! auth()->check()) {
+        if (!auth()->check()) {
             return redirect('/');
         }
-        
+
         $logviewer = new LaravelLogViewer;
 
         if ($file = request('log')) {
             $logviewer->setFile(base64_decode($file));
         }
-        
+
         if ($file = request('dl')) {
             return response()->download($logviewer->pathToLogFile(base64_decode($file)));
         }
-        
+
         if ($file = request('del')) {
             app('files')->delete($logviewer->pathToLogFile(base64_decode($file)));
+
             return redirect(request()->url());
         }
-        
+
         if (request()->has('delall')) {
             foreach ($logviewer->getFiles(true) as $file) {
                 app('files')->delete($logviewer->pathToLogFile($file));
             }
+
             return redirect(request()->url());
         }
 
@@ -60,11 +60,11 @@ class PowerToolsController extends Controller
         return $this->view('logs', $data);
     }
 
-     /**
-     * Returns the PHP Info
-     *
-     * @return string
-     */
+    /**
+    * Returns the PHP Info
+    *
+    * @return string
+    */
     private function getPHPInfo()
     {
         ob_start();
@@ -72,11 +72,10 @@ class PowerToolsController extends Controller
         $html = ob_get_contents();
         ob_end_clean();
 
-        $html = preg_replace( '%^.*<body>(.*)</body>.*$%ms','$1',$html);
+        $html = preg_replace('%^.*<body>(.*)</body>.*$%ms', '$1', $html);
 
         return $html;
     }
-
 
     /**
      * Rebuild the search index
@@ -85,7 +84,7 @@ class PowerToolsController extends Controller
     public function rebuildSearchIndex()
     {
         return $this->doThing(
-            function() { Search::update(); },
+            function () { Artisan::call('search:update'); },
             'Search index rebuilt successfully',
             'Problem rebuilding your search index'
         );
@@ -98,7 +97,7 @@ class PowerToolsController extends Controller
     public function updateStache()
     {
         return $this->doThing(
-            function() { Stache::update(); },
+            function () { Stache::update(); },
             'Stache updated successfully',
             'Problem updating your stache'
         );
@@ -111,7 +110,7 @@ class PowerToolsController extends Controller
     public function clearCache()
     {
         return $this->doThing(
-            function() { Cache::clear(); },
+            function () { Cache::clear(); },
             'Cache cleared successfully',
             'Problem clearing your cache'
         );
@@ -124,12 +123,11 @@ class PowerToolsController extends Controller
     public function clearStaticCache()
     {
         return $this->doThing(
-            function() { Artisan::call('clear:static'); },
+            function () { Artisan::call('clear:static'); },
             'Static page cache cleared successfully',
             'Problem clearing your static page cache'
         );
     }
-
 
     /**
      * Clear Glide image cache
@@ -138,12 +136,11 @@ class PowerToolsController extends Controller
     public function clearGlide()
     {
         return $this->doThing(
-            function() { Artisan::call('clear:glide'); },
+            function () { Artisan::call('clear:glide'); },
             'Glide image cache cleared successfully',
             'Problem clear your Glide image cache'
         );
     }
-
 
     /**
      * Generate Asset Presets
@@ -152,7 +149,7 @@ class PowerToolsController extends Controller
     public function generatePresets()
     {
         return $this->doThing(
-            function() { $this->generatePresetsInBackground(); },
+            function () { $this->generatePresetsInBackground(); },
             'Glide asset generated successfully',
             'Problem generating your glide assets'
         );
@@ -165,9 +162,9 @@ class PowerToolsController extends Controller
     public function regeneratePresets()
     {
         return $this->doThing(
-            function() {
-              Artisan::call('clear:glide');
-              $this->generatePresetsInBackground();
+            function () {
+                Artisan::call('clear:glide');
+                $this->generatePresetsInBackground();
             },
             'Glide asset regenerated successfully',
             'Problem regenerating your glide assets'
@@ -202,12 +199,13 @@ class PowerToolsController extends Controller
     {
         $this->authorize('cp:access');
 
-        try
-        {
+        try {
             $func();
+
             return back()->with('success', $success);
         } catch (\Exception $e) {
             Log::error($error);
+
             return back()->withErrors('error', $error . $e);
         }
     }
@@ -233,7 +231,6 @@ class PowerToolsController extends Controller
     //         return back()->withErrors('error', ' Problem clearing your Pagespeed cache' . $e);
     //     }
     // }
-
 
     // /**
     //  * Clear PHP OpCache cache
