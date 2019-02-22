@@ -9,7 +9,7 @@ routes:
     as: logs
 
   /rebuild-search:
-    uses: rebuildSearchIndex
+    uses: rebuildSearchIndexes
     as: powertools.rebuild-search
 
   /clear-cache:

@@ -20,7 +20,7 @@
       <div class="form-group text-fieldtype width-100">
         <div class="field-inner">
             <label class="block">Search</label>
-            <a href="{{ route('powertools.rebuild-search') }}" class="btn">Update Search Index</a>
+            <a href="{{ route('powertools.rebuild-search') }}" class="btn">Update Search Indexes</a>
         </div>
       </div>
       <div class="form-group text-fieldtype width-100">

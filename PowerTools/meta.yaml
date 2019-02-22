@@ -1,6 +1,6 @@
 name: PowerTools
-version: 1.6.4
-description: Rebuild your search index, cache & asset presets, see your PHP Info and your log
+version: 1.6.5
+description: Rebuild your search indexes, cache & asset presets, see your PHP Info and your log
 url: https://github.com/edalzell/statamic-powertools
 developer: Erin Dalzell
 developer_url: https://github.com/edalzell

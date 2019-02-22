@@ -78,15 +78,19 @@ class PowerToolsController extends Controller
     }
 
     /**
-     * Rebuild the search index
+     * Rebuild the search indexes
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function rebuildSearchIndex()
+    public function rebuildSearchIndexes()
     {
         return $this->doThing(
-            function () { Artisan::call('search:update'); },
-            'Search index rebuilt successfully',
-            'Problem rebuilding your search index'
+            function () {
+                Search::indexes()->each(function ($index, $key) {
+                    Search::update($key);
+                });
+            },
+            'Search indexes rebuilt successfully',
+            'Problem rebuilding your search indexes'
         );
     }
 
