@@ -20,17 +20,19 @@
       <div class="form-group text-fieldtype width-100">
         <div class="field-inner">
             <label class="block">Search</label>
-            <a href="{{ route('powertools.rebuild-search') }}" class="btn">Update Search Indexes</a>
+            <div class="btn-group">
+                <a href="{{ route('powertools.rebuild-search') }}" class="btn lock">Update Search Indexes</a>
+            </div>
         </div>
       </div>
       <div class="form-group text-fieldtype width-100">
         <div class="field-inner">
 	    <label class="block">Caching</label>
             <div class="btn-group">
-                <a href="{{ route('powertools.clear-cache') }}" class="btn">Clear Cache</a>
-                <a href="{{ route('powertools.update-stache') }}" class="btn">Clear Stache</a>
-                <a href="{{ route('powertools.clear-static') }}" class="btn">Clear Static</a>
-                <a href="{{ route('powertools.clear-glide') }}" class="btn">Clear Glide</a>
+                <a href="{{ route('powertools.clear-cache') }}" class="btn lock">Clear Cache</a>
+                <a href="{{ route('powertools.update-stache') }}" class="btn lock">Clear Stache</a>
+                <a href="{{ route('powertools.clear-static') }}" class="btn lock">Clear Static</a>
+                <a href="{{ route('powertools.clear-glide') }}" class="btn lock">Clear Glide</a>
             </div>
         </div>
       </div>
@@ -39,8 +41,8 @@
             <div class="field-inner">
                 <label class="block">Image Manipulation Presets</label>
                 <div class="btn-group">
-                    <a href="{{ route('powertools.assets-generate-presets') }}" class="btn">Generate Assets</a>
-                    <a href="{{ route('powertools.assets-regenerate-presets') }}" class="btn">Regenerate Assets</a>
+                    <a href="{{ route('powertools.assets-generate-presets') }}" class="btn lock">Generate Assets</a>
+                    <a href="{{ route('powertools.assets-regenerate-presets') }}" class="btn lock">Regenerate Assets</a>
                 </div>
             </div>
         </div>
