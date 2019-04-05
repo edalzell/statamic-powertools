@@ -14,19 +14,17 @@ class PowerToolsListener extends Listener
      * @var array
      */
     public $events = [
-        'cp.add_to_head'  => 'powerUp',
-        'cp.nav.created'  => 'nav',
+        'cp.add_to_head' => 'powerUp',
+        'cp.nav.created' => 'nav',
     ];
 
     /**
-     * Initialize Aggregator assets
+     * Load css
      * @return string css link
      */
     public function powerUp()
     {
-        $html = $this->js->tag('powertools');
-        $html .= $this->css->tag('powertools');
-        return $html;
+        return $this->css->tag('powertools');
     }
 
     /**
@@ -39,14 +37,15 @@ class PowerToolsListener extends Listener
         // Only super users can see the PHP info
         /** @var \Statamic\Data\Users\User $user */
         $user = User::getCurrent();
-        if ($user && $user->isSuper())
-        {
+        if ($user && $user->isSuper()) {
             $nav->addTo(
                 'tools',
-                Nav::item('PHP Info')->route('phpinfo')->icon('info'));
+                Nav::item('PHP Info')->route('phpinfo')->icon('info')
+            );
             $nav->addTo(
                 'tools',
-                Nav::item('Logs')->route('logs')->icon('book'));
+                Nav::item('Logs')->route('logs')->icon('book')
+            );
         }
     }
 }
